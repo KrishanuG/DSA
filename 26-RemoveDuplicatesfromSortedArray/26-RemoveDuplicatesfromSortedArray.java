@@ -1,4 +1,4 @@
-// Last updated: 8/5/2025, 12:33:16 PM
+// Last updated: 8/5/2025, 12:33:56 PM
 class Solution {
     public int removeElement(int[] nums, int val) {
         int fast = 0; //pointer to iterate through every element
