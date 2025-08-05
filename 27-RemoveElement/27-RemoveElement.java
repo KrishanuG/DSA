@@ -1,4 +1,5 @@
 // Last updated: 8/5/2025, 12:36:44 PM
+// Using fast-slow pointer approach
 class Solution {
     public int removeElement(int[] nums, int val) {
         int fast = 0; //pointer to iterate through every element
