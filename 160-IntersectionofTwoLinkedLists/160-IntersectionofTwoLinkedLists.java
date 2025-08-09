@@ -1,37 +1,33 @@
-// Last updated: 8/9/2025, 9:38:34 PM
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
-public class Solution {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        ListNode a = headA;
-        ListNode b = headB;
-        //boundary check
-        if (a == null || b == null)
-            return null;
-        // Keep going until both pointers meet Or until we're absolutely sure they won't meet.
-        while (a != b) {
-            if (a == null) // If pointer A reaches the end of its track
-            {
-                a = headB; // it starts running on track B! It's like saying "Okay, let's see if we can meet if I run the other way".
-            } else {
-                a = a.next; // Otherwise, pointer A continues to the next node on its track. Just keep running!
-            }
-            // same logic for pointer b
-            if (b == null) {
-                b = headA;
-            } else {
-                b = b.next;
-            }
+// Last updated: 8/9/2025, 10:01:05 PM
+class Solution {
+    public boolean isHappy(int n) {
+        // fast slow pointer approach
+        int slow = n;
+        int fast = n;
+        //while loop is not used here because initially slow and 
+        //fast pointer will be equal only, so the loop won't run.
+        do {
+            //slow moving one step ahead and fast moving two steps ahead
+
+            slow = square(slow);
+            fast = square(square(fast));
+        } while (slow != fast);
+
+        //if a cycle exists, then the number is not a happy number
+        //and slow will have a value other than 1
+
+        return slow == 1;
+    }
+
+    //Finding the square of the digits of a number
+    public int square(int num) {
+        int ans = 0;
+        while (num > 0) {
+            int rem = num % 10;
+            ans += rem * rem;
+            num /= 10;
         }
-        return a;
+
+        return ans;
     }
 }
