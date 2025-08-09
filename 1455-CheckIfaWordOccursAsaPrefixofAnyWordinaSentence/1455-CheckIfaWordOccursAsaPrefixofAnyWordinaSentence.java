@@ -1,4 +1,4 @@
-// Last updated: 8/9/2025, 1:26:59 PM
+// Last updated: 8/9/2025, 1:27:49 PM
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int read1 = m - 1; // Tracks last valid element in nums1
