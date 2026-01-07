@@ -1,4 +1,4 @@
-// Last updated: 1/7/2026, 4:08:06 PM
+// Last updated: 1/7/2026, 4:08:15 PM
 1class Solution {
 2    public String reverseWords(String s) {
 3        String[] st = s.trim().split("\\s+");
