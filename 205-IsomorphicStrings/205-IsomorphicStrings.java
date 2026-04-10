@@ -1,4 +1,4 @@
-// Last updated: 4/10/2026, 12:26:44 PM
+// Last updated: 4/10/2026, 12:27:34 PM
 1class Solution {
 2    public boolean isIsomorphic(String s, String t) {
 3        if (s.length() != t.length()) {
