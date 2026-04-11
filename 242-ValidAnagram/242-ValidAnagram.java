@@ -1,4 +1,4 @@
-// Last updated: 4/11/2026, 9:46:12 PM
+// Last updated: 4/11/2026, 9:46:24 PM
 1class Solution {
 2    public int firstUniqChar(String s) {
 3        int[] freq = new int[26];
