@@ -1,23 +1,24 @@
-// Last updated: 1/8/2026, 10:32:08 PM
+// Last updated: 4/11/2026, 9:33:33 PM
 1class Solution {
 2    public boolean isAnagram(String s, String t) {
-3        if(s.length() != t.length()) return false;
-4
-5        int[] freq = new int[26]; // 26 letter alphabets
-6
-7        for(int i=0;i<s.length();i++){
-8            freq[s.charAt(i) - 'a']++; //// Increment frequency for each character in str1
-9        }
-10
-11         for(int i=0;i<t.length();i++){
-12            freq[t.charAt(i) - 'a']--; //// Decrement frequency for each character in str2
-13        }
-14        // Check if all frequencies are zero, meaning both strings have the same characters
-15        for (int i = 0; i < 26; i++) {
-16            if (freq[i] != 0)  // If any frequency is non-zero, they are not anagrams
-17                return false;
-18        }
-19
-20        return true;
-21    }
-22}
+3        if (s.length() != t.length())
+4            return false;
+5
+6        int[] freq = new int[26]; // 26 letter alphabets
+7        // Increment frequency for each character in str1
+8        for (int i = 0; i < s.length(); i++) {
+9            freq[s.charAt(i) - 'a']++;
+10        }
+11        // Decrement frequency for each character in str2
+12        for (int i = 0; i < t.length(); i++) {
+13            freq[t.charAt(i) - 'a']--;
+14        }
+15        // Check if all frequencies are zero, meaning both strings have the same characters
+16        for (int i = 0; i < 26; i++) {
+17            if (freq[i] != 0) // If any frequency is non-zero, they are not anagrams
+18                return false;
+19        }
+20
+21        return true;
+22    }
+23}
