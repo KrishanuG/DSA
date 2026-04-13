@@ -1,15 +1,25 @@
-// Last updated: 4/13/2026, 5:55:08 PM
-1class Solution {
-2    public int[] twoSum(int[] nums, int target) {
-3        HashMap<Integer, Integer> numMap = new HashMap<>();
-4
-5        for(int i = 0; i<nums.length; i++){
-6            int complement = target - nums[i];
-7            if(numMap.containsKey(complement)){
-8                return new int[]{numMap.get(complement), i};
-9            }
-10            numMap.put(nums[i], i);
-11        }
-12        return new int[]{};
-13    }
-14}
+// Last updated: 4/13/2026, 5:56:16 PM
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+    //   Map<Integer, Integer> map = new HashMap();
+
+    //   for(int i = 0; i< nums.length; i++){
+    //     int comp = target - nums[i];
+
+    //     if(map.containsKey(comp)){
+    //         return new int[]{map.get(comp), i};
+    //     }
+    //     map.put(nums[i], i);
+    //   }
+    //   return new int[]{};
+
+    for(int i = 1; i < nums.length; i++){
+        for(int j = i; j <nums.length; j++){
+            if(nums[j] + nums[j-i] ==target){
+                return new int[]{j-i,j};
+            }
+        }
+    }
+    return null;
+    }
+}
