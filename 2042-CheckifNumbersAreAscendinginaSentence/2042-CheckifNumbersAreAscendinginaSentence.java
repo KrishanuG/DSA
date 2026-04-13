@@ -1,22 +1,28 @@
-// Last updated: 4/13/2026, 6:43:53 PM
-1class Solution {
-2    public boolean areNumbersAscending(String s) {
-3        String[] str = s.trim().split("\\s+");
-4        int prev = -1;
-5
-6        for (String word : str) {
-7            if (Character.isDigit(word.charAt(0))) {
-8
-9                int num = Integer.parseInt(word);
-10
-11                if (num <= prev) {
-12                    return false;
-13                }
-14                prev = num;
-15            }
-16        }
-17
-18        return true;
-19    }
-20}
-21
+// Last updated: 4/13/2026, 6:44:13 PM
+class Solution {
+    public boolean areNumbersAscending(String s) {
+        int i = 0;
+        int n = s.length();
+        int prev = -1;
+        while(i<n){
+            char c = s.charAt(i);
+            if(c>='0' && c<='9'){
+                int num = c-'0';
+                while(i+1<n && s.charAt(i+1)>='0' && s.charAt(i+1)<='9'){
+                    num = num*10 + s.charAt(i+1) - '0';
+                    i++;
+                }
+                if(prev==-1){
+                    prev = num;
+                }
+                else{
+                    if(prev >= num) return false;
+                    prev = num;
+                }
+            }
+            i++;
+        }
+
+        return true;
+    }
+}
