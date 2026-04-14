@@ -1,4 +1,4 @@
-// Last updated: 4/14/2026, 1:01:32 PM
+// Last updated: 4/14/2026, 1:01:45 PM
 1class Solution {
 2    public int numIdenticalPairs(int[] nums) {
 3        HashMap<Integer, Integer> freq = new HashMap<>();
