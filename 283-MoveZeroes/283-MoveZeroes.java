@@ -1,15 +1,16 @@
-// Last updated: 4/14/2026, 2:03:50 PM
+// Last updated: 4/14/2026, 2:11:07 PM
 1class Solution {
-2    public void moveZeroes(int[] nums) {
-3        int j = 0;
-4        for (int i = 0; i < nums.length; i++) {
-5            if (nums[i] != 0) {
-6                // swap nums[i] and nums[j]
-7                int temp = nums[i];
-8                nums[i] = nums[j];
-9                nums[j] = temp;
-10                j++;
-11            }
+2    public int fib(int n) {
+3        if (n == 0)
+4            return 0;
+5        if (n == 1)
+6            return 1;
+7        int prev1 = 0, prev2 = 1, current = 0;
+8        for (int i = 2; i <= n; i++) {
+9            current = prev1 + prev2;
+10            prev1 = prev2;
+11            prev2 = current;
 12        }
-13    }
-14}
+13        return current;
+14    }
+15}
