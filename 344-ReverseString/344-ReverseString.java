@@ -1,22 +1,53 @@
-// Last updated: 4/16/2026, 2:03:45 PM
-1class Solution {
-2    public int totalFruit(int[] fruits) {
-3        int start = 0, end = 0;
-4        int n = fruits.length, maxLen = 0;
-5        Map<Integer, Integer> map = new HashMap<>();
-6        while (end < n) {
-7            map.put(fruits[end], map.getOrDefault(fruits[end], 0) + 1);
-8            while (map.size() > 2) {
-9                map.put(fruits[start], map.get(fruits[start]) - 1);
-10                if (map.get(fruits[start]) == 0) {
-11                    map.remove(fruits[start]);
-12                }
-13                start++;
-14            }
-15            int currLen = end - start + 1;
-16            maxLen = Math.max(maxLen, currLen);
-17            end++;
-18        }
-19        return maxLen;
-20    }
-21}
+// Last updated: 4/16/2026, 2:05:08 PM
+import java.util.*;
+
+class Solution {
+    // Function to find the maximum number of fruits we can collect
+    // with at most two types of fruits in the baskets.
+    public int totalFruit(int[] fruits) {
+        
+        // Variables to track max window size
+        int maxlen = 0;
+        
+        // Track last and second last fruit types
+        int lastFruit = -1, secondLastFruit = -1;
+        
+        // Count of current window and streak of last fruit
+        int currCount = 0, lastFruitStreak = 0;
+
+        // Traverse through each fruit
+        for (int fruit : fruits) {
+            
+            // If fruit matches last two, expand window
+            if (fruit == lastFruit || fruit == secondLastFruit) {
+                currCount++;
+            } else {
+                // Reset window size to streak + 1
+                currCount = lastFruitStreak + 1;
+            }
+
+            // Update lastFruit streak and fruit types
+            if (fruit == lastFruit) {
+                lastFruitStreak++;
+            } else {
+                lastFruitStreak = 1;
+                secondLastFruit = lastFruit;
+                lastFruit = fruit;
+            }
+
+            // Update max window size
+            maxlen = Math.max(maxlen, currCount);
+        }
+
+        return maxlen;
+    }
+}
+
+// Driver code
+class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        int[] fruits = {1,2,1,2,3};
+        System.out.println(sol.totalFruit(fruits));
+    }
+}
