@@ -1,21 +1,22 @@
-// Last updated: 4/17/2026, 1:54:26 PM
+// Last updated: 4/17/2026, 1:55:58 PM
 1class Solution {
-2    public String reverseOnlyLetters(String s) {
-3        char[] ch = s.toCharArray();
-4        int i = 0, j = ch.length - 1;
-5        while (i < j) {
-6            if (!Character.isLetter(ch[i])) {
-7                i++;
-8            } else if (!Character.isLetter(ch[j])) {
-9                j--;
-10            } else {
-11                char temp = ch[i];
-12                ch[i] = ch[j];
-13                ch[j] = temp;
-14                i++;
-15                j--;
-16            }
-17        }
-18        return new String(ch);
-19    }
-20}
+2    public int totalFruit(int[] fruits) {
+3        int start = 0, end = 0;
+4        int n = fruits.length, maxLen = 0;
+5        HashMap<Integer, Integer> freq = new HashMap<>();
+6        while (end < n) {
+7            freq.put(fruits[end], freq.getOrDefault(fruits[end], 0) + 1);
+8            while (freq.size() > 2) {
+9                freq.put(fruits[start], freq.get(fruits[start]) - 1);
+10                if (freq.get(fruits[start]) == 0) {
+11                    freq.remove(fruits[start]);
+12                }
+13                start++;
+14            }
+15            int currLen = end - start + 1;
+16            maxLen = Math.max(maxLen, currLen);
+17            end++;
+18        }
+19        return maxLen;
+20    }
+21}
