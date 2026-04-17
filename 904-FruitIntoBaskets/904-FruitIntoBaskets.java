@@ -1,7 +1,7 @@
-// Last updated: 4/17/2026, 2:11:11 PM
+// Last updated: 4/17/2026, 2:11:28 PM
 1class Solution {
 2    public String reverseWords(String s) {
-3        String[] words = s.split("\\s+");
+3        String[] words = s.split(" ");
 4        StringBuilder sb = new StringBuilder();
 5        for(String word : words){
 6            StringBuilder revWord = new StringBuilder(word).reverse();
